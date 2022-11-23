@@ -259,7 +259,11 @@ WHERE e.department_id = 50;
 SELECT DISTINCT job_id
 FROM employees;
 
-
+--입사일이 2005 년 이전인 사원의 이름 풀네임과 사원번호, 월급 출력
+-- 단 풀네임은 별칭으로 fullName
+SELECT first_name ||' '|| last_name as "fullName", employee_id, salary
+FROM employees
+WHERE hire_date < '2005-01-01';
 
 
 
