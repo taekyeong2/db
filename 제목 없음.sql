@@ -236,5 +236,32 @@ FROM employees;
 
 DESC employees; --해당되는 테이블의 컬럼 확인
 
+--사원번호, 이름, 업무코드, 입사일 출력
+SELECT employee_id, first_name, job_id, hire_date "start date"
+FROM employees;
+-- 별칭 대소문자 구분 / 공백 / 특수문사 사용 할 경우 ""사용해야한다.
+
+--현재 매니저직책을 맡고 있는 사원 번호를 구하세요
+--단 중복값을 제거하고 출력
+SELECT DISTINCT manager_id
+FROM employees
+WHERE manager_id IS NOT NULL
+ORDER BY manager_id;
+
+-- 매니저 아이디는 사원들을 관리하는 사람이 누군지 붙여놓은거
+SELECT e.*, m.*
+FROM employees e join employees m
+ ON e.manager_id = m.employee_id
+WHERE e.department_id = 50;
+
+-- 사원들이 어떤 업무를 하고 있는지 출력
+-- (단, 중복되는 값을 제거하고 출력)
+SELECT DISTINCT job_id
+FROM employees;
+
+
+
+
+
 
 
